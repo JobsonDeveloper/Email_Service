@@ -5,7 +5,6 @@ import br.com.jobson.email_service.core.dto.EmailRequest;
 import br.com.jobson.email_service.exceptions.EmailServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,7 +29,7 @@ public class EmailSenderController {
                     request.subject(),
                     request.body()
             );
-            return ResponseEntity.ok("Email send successfully");
+            return ResponseEntity.ok("Email sent successfully");
         } catch (EmailServiceException exception) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error while sending email");
         }
